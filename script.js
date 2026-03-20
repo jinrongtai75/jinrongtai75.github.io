@@ -1,3 +1,18 @@
+// 이메일 팝업
+document.getElementById('email-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('email-popup').style.display = 'block';
+    document.getElementById('email-overlay').style.display = 'block';
+});
+
+function copyEmail() {
+    navigator.clipboard.writeText('[MASKED_EMAIL]').then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.textContent = '복사 완료!';
+        setTimeout(() => { btn.textContent = '복사하기'; }, 2000);
+    });
+}
+
 // 모바일 메뉴 토글
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const mobileNav = document.getElementById('mobile-nav');
